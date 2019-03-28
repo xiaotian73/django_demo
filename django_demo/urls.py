@@ -19,5 +19,7 @@ from HelloWord import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/',views.hello),
-    path('index/',views.index)
+    #path('index/',views.index),
+    path('login/',views.login),
+    #path('check/',views.check),
 ]
