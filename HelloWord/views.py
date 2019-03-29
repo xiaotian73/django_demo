@@ -37,3 +37,8 @@ def login(request):
         #print(request.POST.get('username'))
 
     return render(request,'login.html')
+def QueryUser(request):
+    #查询数据库用户，并将结果返回带前端页面
+    user = User.objects.all()
+    print(user.values())
+    return render(request,'index.html',{'user':user.values()})

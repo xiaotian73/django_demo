@@ -6,5 +6,13 @@
 </head>
 <body>
 <h1>欢迎来到Django的世界</h1>
+<form action="/QueryUser/" method="post">
+    <input type="submit",value="用户查询">
+{#    <tr><td>id</td>></tr><tr><td>name</td>></tr>#}
+    {% for row in user %}
+        {{ row.name }}
+        {{ row.id }}
+    {% endfor %}
+</form>>
 </body>
 </html>
