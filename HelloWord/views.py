@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from HelloWord.models import User
 
@@ -20,12 +20,14 @@ def login(request):
             #查询数据库
             user = User.objects.get(name=username)
         except:
-            return render(request, 'login.html')
+            return render(request, 'login.html', {'msg': '用户名或者密码错误'})
 
         if password == user.password:
             return render(request, 'index.html')
         else:
-            return HttpResponse("用户名或者密码错误，请确认后输入")
+            print("用户名称或者密码错误")
+            return render(request, 'login.html',{'msg':'用户名或者密码错误'})
+
         #print(User.objects.filter('admin'))
         # if username == "leo" and password == "123456":
         #     return render(request,'index.html')
